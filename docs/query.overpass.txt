@@ -1,1 +1,10 @@
+[out:json][timeout:90];
 
+// Menentukan batas wilayah Kecamatan Kintamani (admin_level 6)
+area["name"="Kintamani"]["boundary"="administrative"]["admin_level"="6"]->.kec;
+
+// Mengambil objek node, way, atau relation (nwr) dengan tag tourism khusus guest_house di dalam area Kintamani
+nwr["tourism"="guest_house"](area.kec);
+
+// Menampilkan output berupa titik tengah (center) dan atribut (tags) objek
+out center tags;
